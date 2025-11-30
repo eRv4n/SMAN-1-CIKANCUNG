@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+:root {
+  --font-main: "Roboto", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50;
+  font-family: var(--font-main);
+}
+
+.font-playfair {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+}
+
+.nav-link {
+  @apply transition-all duration-300 ease-in-out hover:text-cyan-600;
+}
+
+.nav-mobile-link {
+  @apply block py-1 p-3 text-gray-700 transition duration-300 ease-in-out hover:text-cyan-600;
+}
+
+.kesiswaan-content {
+  @apply block px-4 py-2 transition duration-300 ease-in-out hover:text-cyan-600 hover:bg-gray-300;
+}
+
+.nav-active {
+  @apply text-cyan-600 font-semibold;
+}
+
+.nav-inactive {
+  @apply text-gray-700 font-normal;
+}

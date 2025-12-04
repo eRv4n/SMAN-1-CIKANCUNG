@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/eRv4n/SMAN-1-CIKANCUNG#readme",
   "dependencies": {
-    "animejs": "^4.2.2"
+    "animejs": "^4.2.2",
+    "swiper": "^12.0.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.17",

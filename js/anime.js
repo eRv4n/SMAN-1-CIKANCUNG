@@ -153,6 +153,19 @@ observe("#misi-section", () => {
   document.querySelectorAll("#misi-list > div").forEach((el, i) => fadeUp(el, 150 + i * 120, 18, 400));
 });
 
+// PROGRAM UNGGULAN
+
+observe("#program-unggulan", (el) => fadeUp(el, 100, 20, 600));
+
+// FASILITAS
+observe("#fasilitas", () => {
+  fadeUp("#fasilitas .bg-linear-to-b", 0, 30, 600);
+  fadeUp("#fasilitas-deskripsi", 600, 20, 500);
+  fadeUp("#fasilitas-unggulan .swiper", 800, 20, 600);
+});
+
+// OSIS & ESKUL
+
 // BERITA
 export const animateNews = () => {
   const cards = document.querySelectorAll("#berita > div");
@@ -169,3 +182,25 @@ export const animateNews = () => {
 };
 
 observe("#beritaWrapper", animateNews);
+
+// ======================================================
+// OSIS & ESKUL SECTION
+// ======================================================
+
+// animasi judul
+// observe("#judul-eskul", (el) => fadeUp(el, 100, 30, 700));
+
+// animasi card dengan stagger
+// observe("#eskul-list", () => {
+//   const cards = document.querySelectorAll("#eskul-list > div");
+
+//   cards.forEach((card, i) => {
+//     waapi.animate(card, {
+//       opacity: [0, 1],
+//       transform: ["translateY(25px)", "translateY(0)"],
+//       duration: 650,
+//       delay: i * 120, // <-- STAGGER KEREN
+//       easing: "ease-out",
+//     });
+//   });
+// });

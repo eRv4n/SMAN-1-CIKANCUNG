@@ -140,3 +140,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("year").textContent = new Date().getFullYear();
 });
+
+// Swiper.js
+
+// Import core & modules
+import Swiper from "swiper/bundle";
+import "swiper/css/bundle";
+
+// Data program unggulan
+const fasilitas = [
+  {
+    nama: "Lab Komputer",
+    deskripsi: "Pengenalan lingkungan sekolah.",
+    gambar: "https://www.damai.sch.id/wp-content/uploads/2020/01/lab-komputer-tk-sd-2020.jpg",
+  },
+  {
+    nama: "Lab Kimia",
+    deskripsi: "Meningkatkan literasi.",
+    gambar:
+      "https://sma3jogja.sch.id/wp-content/uploads/2020/05/8d2e2f8e-d346-4ec5-adc7-37dedfae9a5a-1024x576.jpg",
+  },
+  {
+    nama: "Lab Fisika",
+    deskripsi: "Kegiatan senam untuk mensegarkan badan.",
+    gambar: "https://smpn1baturetno.sch.id/wp-content/uploads/2020/08/Lab-Fisika-3-1-1600x900.jpg",
+  },
+  {
+    nama: "Lab Biologi",
+    deskripsi: "Kegiatan senam untuk mensegarkan badan.",
+    gambar: "https://sman1cibungbulang.sch.id/wp-content/uploads/2022/02/Laboratorium-Biologi-SMA-I.jpg",
+  },
+  // Tambah slide lain sesuai kebutuhan
+];
+
+// Elements teks dinamis
+const namaEl = document.querySelector("#fasilitas-nama");
+const deskripsiEl = document.querySelector("#fasilitas-deskripsi");
+const swiperWrapperFasilitas = document.querySelector(".mySwiperFasilitas .swiper-wrapper");
+
+// Render slide
+fasilitas.forEach((item) => {
+  const slide = document.createElement("div");
+  slide.className = "swiper-slide";
+  slide.innerHTML = `
+    <img data-src="${item.gambar}" class="w-full h-80 md:h-[500px] object-cover swiper-lazy rounded-2xl"/>
+    <div class="swiper-lazy-preloader"></div>
+  `;
+  swiperWrapperFasilitas.appendChild(slide);
+});
+
+// Init Swiper
+// Fasilitas
+const swiperFasilitas = new Swiper(".mySwiperFasilitas", {
+  slidesPerView: 1,
+  loop: fasilitas.length >= 2, // loop hanya aktif kalau slide ≥ 2
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  lazy: {
+    loadPrevNext: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  on: {
+    slideChange: function () {
+      const current = fasilitas[this.realIndex];
+      namaEl.textContent = current.nama;
+      deskripsiEl.textContent = current.deskripsi;
+    },
+  },
+});
+
+// Set awal teks
+namaEl.textContent = fasilitas[0].nama;
+deskripsiEl.textContent = fasilitas[0].deskripsi;

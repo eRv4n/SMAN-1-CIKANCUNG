@@ -4,7 +4,7 @@
   --font-main: "Roboto", ui-sans-serif, system-ui, sans-serif;
 }
 
-* {
+html {
   scroll-behavior: smooth;
 }
 
@@ -66,4 +66,12 @@ body {
   50% {
     opacity: 0;
   }
+}
+
+.swiper-pagination-bullet {
+  @apply bg-cyan-600 opacity-70;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-cyan-600;
 }
